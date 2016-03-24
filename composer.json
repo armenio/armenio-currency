@@ -1,0 +1,27 @@
+{
+	"name": "armenio/armenio-currency",
+	"description": "Currency library",
+	"type": "library",
+	"keywords": [
+		"currency",
+		"helper",
+		"zf2",
+		"armenio"
+	],
+	"homepage": "https://github.com/armenio/armenio-currency",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Rafael Armênio",
+			"email": "rafael.armenio@gmail.com"
+		}
+	],
+	"require": {
+		"zendframework/zendframework": "2.*"
+	},
+	"autoload": {
+		"psr-4": {
+			"Aircode\\Currency\\": "src/"
+		}
+	},
+}
