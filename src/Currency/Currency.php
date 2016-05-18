@@ -1,4 +1,10 @@
 <?php
+/**
+ * Rafael Armenio <rafael.armenio@gmail.com>
+ *
+ * @link http://github.com/armenio for the source repository
+ */
+ 
 namespace Armenio\Currency;
 
 use Locale;
@@ -19,8 +25,12 @@ class Currency
 	 * 
 	 * @author Rafael Armenio <rafael.armenio@gmail.com>
 	 * @version 1.0 
-	 * @return void
+	 * @return string
 	 */
+	public function symbol($locale = null)
+	{
+		return self::symbol($locale = null);
+	}
 	public static function symbol($locale = null)
 	{
 		if( ! $locale ){
@@ -44,8 +54,12 @@ class Currency
 	 * 
 	 * @author Rafael Armenio <rafael.armenio@gmail.com>
 	 * @version 1.0 
-	 * @return void
+	 * @return float
 	 */
+	public function format($number, $locale = null, $currencyCode = null)
+	{
+		return self::format($number, $locale = null, $currencyCode = null);
+	}
 	public static function format($number, $locale = null, $currencyCode = null)
 	{
 		$number = self::normalize($number, $locale);
@@ -83,8 +97,12 @@ class Currency
 	 * 
 	 * @author Rafael Armenio <rafael.armenio@gmail.com>
 	 * @version 1.0 
-	 * @return void
+	 * @return float
 	 */
+	public function normalize($number, $locale = null)
+	{
+		return self::normalize($number, $locale = null);
+	}
 	public static function normalize($number, $locale = null)
 	{
 		if( $number === (float) $number){
@@ -118,9 +136,14 @@ class Currency
 	 * 
 	 * @author Rafael Armenio <rafael.armenio@gmail.com>
 	 * @version 1.0 
-	 * @return void
+	 * @return float
 	 */
-	public static function discount($value, $percentDiscount){
+	public function discount($value, $percentDiscount)
+	{
+		return self::discount($value, $percentDiscount);
+	}
+	public static function discount($value, $percentDiscount)
+	{
 		return $value-($value*($percentDiscount/100));
 	}
 
@@ -129,9 +152,15 @@ class Currency
 	 * 
 	 * @author Rafael Armenio <rafael.armenio@gmail.com>
 	 * @version 1.0 
-	 * @return void
+	 * @return int
 	 */
-	public static function getNumberOfInstallments($total, $minValue, $maxInstallments){
+	public function getNumberOfInstallments($total, $minValue, $maxInstallments)
+	{
+		return self::getNumberOfInstallments($total, $minValue, $maxInstallments);
+	}
+
+	public static function getNumberOfInstallments($total, $minValue, $maxInstallments)
+	{
 		$numberOfInstallments = (int) ( $total/$minValue );
 
 		if( $numberOfInstallments == 0 ){
