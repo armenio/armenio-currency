@@ -7,6 +7,9 @@
  
 namespace Armenio\Currency;
 
+use Zend\ServiceManager\ServiceLocatorAwareInterface;
+use Zend\ServiceManager\ServiceLocatorInterface;
+
 use Locale;
 use NumberFormatter;
 
@@ -18,9 +21,21 @@ use Zend\Stdlib\ErrorHandler;
  * @author Rafael Armenio <rafael.armenio@gmail.com>
  * @version 1.0
  */
-class Currency
-{	
-	/**
+class Currency implements ServiceLocatorAwareInterface
+{
+    protected $serviceLocator;
+
+    public function setServiceLocator(ServiceLocatorInterface $serviceLocator)
+    {
+        $this->serviceLocator = $serviceLocator;
+    }
+
+    public function getServiceLocator()
+    {
+        return $this->serviceLocator;
+    }
+
+    /**
 	 * symbol
 	 * 
 	 * @author Rafael Armenio <rafael.armenio@gmail.com>
@@ -29,7 +44,7 @@ class Currency
 	 */
 	public function symbol($locale = null)
 	{
-		return self::symbol($locale = null);
+		return self::symbol($locale);
 	}
 	public static function symbol($locale = null)
 	{
@@ -58,7 +73,7 @@ class Currency
 	 */
 	public function format($number, $locale = null, $currencyCode = null)
 	{
-		return self::format($number, $locale = null, $currencyCode = null);
+		return self::format($number, $locale, $currencyCode);
 	}
 	public static function format($number, $locale = null, $currencyCode = null)
 	{
@@ -101,7 +116,7 @@ class Currency
 	 */
 	public function normalize($number, $locale = null)
 	{
-		return self::normalize($number, $locale = null);
+		return self::normalize($number, $locale);
 	}
 	public static function normalize($number, $locale = null)
 	{
